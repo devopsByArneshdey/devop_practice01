@@ -6,7 +6,11 @@ pipeline {
         docker { image 'tomcat' }
       }
       steps {
-        sh "java -version"
+        sh '''
+        echo "Starting the script"
+        cd /usr/local/tomcat/bin
+        ./version.sh
+        '''
       }
     }
     stage('Front-end') {
