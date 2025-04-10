@@ -6,7 +6,7 @@ pipeline {
         docker { image 'tomcat' }
       }
       steps {
-        sh "tomcat/bin/version.sh"
+        sh "sh tomcat/bin/version.sh"
       }
     }
     stage('Front-end') {
