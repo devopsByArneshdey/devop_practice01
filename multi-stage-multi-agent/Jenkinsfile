@@ -3,10 +3,10 @@ pipeline {
   stages {
     stage('Back-end') {
       agent {
-        docker { image 'maven:3.8.1-adoptopenjdk-11' }
+        docker { image 'tomcat:jre17-temurin-noble' }
       }
       steps {
-        sh 'mvn --version'
+        sh "tomcat/bin/version.sh"
       }
     }
     stage('Front-end') {
@@ -15,6 +15,14 @@ pipeline {
       }
       steps {
         sh 'node --version'
+      }
+    }
+    stage('Database-node') {
+      agent {
+        docker { image 'mysql:latest' }
+      }
+      steps {
+        sh 'mysqld --version'
       }
     }
   }
