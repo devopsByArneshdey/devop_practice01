@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Back-end') {
       agent {
-        docker { image 'tomcat:latest' }
+        docker { image 'tomcat' }
       }
       steps {
         sh "tomcat/bin/version.sh"
