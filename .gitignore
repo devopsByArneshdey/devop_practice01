@@ -1,0 +1,4 @@
+#IGNORE *.temp files
+**/*README*
+#**/*.temp
+
